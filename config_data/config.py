@@ -9,7 +9,7 @@ ADMIN_IDS = getenv("ADMIN_IDS")
 @dataclass
 class TgBot():
     token: str # токен для доступа к боту
-    admin_ids: list[int] # список админов
+
 
 @dataclass
 class Config:
@@ -17,19 +17,13 @@ class Config:
 
 
 # создания экземпляра телеграмм бота с загрузкой токена, списка админов
-def load_config(path: str | None = None) -> Config:
-    env = Env()
-    env.read_env(path) # путь для файла env где хранится токен
+def load_config() -> Config:
     return Config(
         tg_bot=TgBot(
-            token=BOT_TOKEN,
-            admin_ids=list(map(int, list(ADMIN_IDS))) # возващае экземпляр класса конфиг - бота с токеном
-        )
+            token=BOT_TOKEN)
     )
 
 # Загрузка списка админов
-def load_admin(path: str | None = None):
-    env = Env()
-    env.read_env(path) # путь для файла env где хранится токен
+def load_admin():
     ADMINS = list(ADMIN_IDS)
     return ADMINS
