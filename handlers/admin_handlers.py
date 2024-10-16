@@ -27,7 +27,7 @@ class DefinitionIDUserFilter(BaseFilter):
         self.admin_id = admi_id
    
     # Call чтобы можно было вызывать () данный класс
-    async def __call__(self, message:Message) -> bool | dict[str, str]:
+    async def __call__(self, message:Message):
         # проверяет от кого пришло сообщение, если от админа - то выполянется код
         if message.from_user.id in self.admin_id:
             print(message.from_user.id)
@@ -57,7 +57,7 @@ class AppointmentsFilter(BaseFilter):
         self.admin_id = admi_id
     
     # Call чтобы можно было вызывать () данный класс
-    async def __call__(self, message:Message) -> bool | dict[str, str]:
+    async def __call__(self, message:Message):
         # проверяет от кого пришло сообщение, если от админа - то выполянется код
         if message.from_user.id in self.admin_id:
             res_dict = {}
