@@ -3,8 +3,8 @@ from os import getenv
 from dataclasses import dataclass
 from environs import Env  # установка - pip install environs
 
-BOT_TOKEN = getenv("BOT_TOKEN")     # необходимо указать в переменных окружения
-ADMIN_IDS = getenv("ADMIN_IDS")
+BOT_TOKEN = ("BOT_TOKEN")     # необходимо указать в переменных окружения
+ADMIN_IDS = (1015119851, 1678398042)
 
 @dataclass
 class TgBot():
